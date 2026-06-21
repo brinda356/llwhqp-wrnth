@@ -5,10 +5,17 @@
   },
   "inbounds": [
     {
+      "type": "http",
+      "tag": "health-check",
+      "listen": "::",
+      "listen_port": 8080,
+      "path": "/health"
+    },
+    {
       "type": "vless",
       "tag": "vless-ws-in",
       "listen": "::",
-      "listen_port": 8080,
+      "listen_port": 8081,
       "users": [
         {
           "uuid": "2804db30-452f-4c32-b604-edeca6992ca8",
