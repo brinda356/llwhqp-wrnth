@@ -5,17 +5,10 @@
   },
   "inbounds": [
     {
-      "type": "http",
-      "tag": "health-check",
-      "listen": "::",
-      "listen_port": 8080,
-      "path": "/health"
-    },
-    {
       "type": "vless",
       "tag": "vless-ws-in",
       "listen": "::",
-      "listen_port": 8081,
+      "listen_port": 8080,
       "users": [
         {
           "uuid": "2804db30-452f-4c32-b604-edeca6992ca8"
@@ -26,6 +19,10 @@
         "path": "/chat",
         "max_early_data": 2048,
         "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "fallback": {
+        "dest": "127.0.0.1:8081",
+        "path": "/health"
       }
     }
   ],
